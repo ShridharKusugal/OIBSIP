@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tempora — A clean, accurate, and responsive temperature converter for Celsius, Fahrenheit, and Kelvin.">
+  <meta name="keywords" content="Tempora, temperature converter, Celsius to Fahrenheit, Kelvin to Celsius, temperature calculator">
+  <meta name="author" content="Tempora">
+  <title>Tempora — Every Degree, Made Simple | Temperature Converter</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=meaning-v3">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-inner container">
+      <a href="#home" class="brand" aria-label="Tempora Home">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
+            <circle cx="11.5" cy="17.5" r="1.5" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Tempora</span>
+          <span class="brand-tagline">Every Degree, Made Simple.</span>
+        </div>
+      </a>
+
+      <div class="header-badge" aria-label="Tool classification">
+        <span class="badge-dot"></span>
+        <span class="badge-text">SMART TEMPERATURE TOOL</span>
+      </div>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#converter" class="nav-link">Converter</a></li>
+          <li><a href="#examples" class="nav-link">Examples</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 2: Hero -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        <div class="hero-pill">
+          <span class="hero-pill-sparkle">✦</span>
+          <span>FAST, ACCURATE &amp; CLIENT-SIDE</span>
+        </div>
+        <h1 class="hero-title">Temperature Conversion, Simplified.</h1>
+        <p class="hero-subtitle">
+          Convert Celsius, Fahrenheit, and Kelvin in seconds with a simple, accurate, and easy-to-use temperature calculator.
+        </p>
+        <p class="hero-supporting">Three scales. One simple tool.</p>
+        <div class="hero-actions">
+          <a href="#converter" class="btn btn-primary hero-btn">
+            <span>Open Converter</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v10.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 14.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="#about" class="btn btn-ghost hero-btn">
+            <span>Learn Formulas</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Temperature Converter Card -->
+    <section class="converter-section" id="converter">
+      <div class="container">
+        <div class="converter-wrapper">
+          <div class="converter-card" id="converter-card">
+            
+            <div class="card-header">
+              <div class="card-header-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
+                  <path d="M12 9v5" />
+                </svg>
+              </div>
+              <div>
+                <h2 class="card-title">Convert Temperature</h2>
+                <p class="card-subtitle">Enter a value and choose your temperature scales.</p>
+              </div>
+            </div>
+
+            <!-- Converter Form -->
+            <form id="temp-form" class="converter-form" novalidate onsubmit="return false;">
+              
+              <!-- Input Field -->
+              <div class="form-group">
+                <label for="temp-input" class="form-label">
+                  <span>Temperature Value</span>
+                  <span class="label-hint">Supports negative numbers and decimals</span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                  </span>
+                  <input
+                    type="number"
+                    step="any"
+                    id="temp-input"
+                    class="form-input"
+                    placeholder="Enter temperature (e.g., 25)"
+                    autocomplete="off"
+                    aria-describedby="input-error"
+                    required
+                  >
+                  <button type="button" id="quick-clear-input" class="quick-clear-btn" aria-label="Clear input value" title="Clear input">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+                <!-- Validation message display -->
+                <div id="input-error" class="validation-message" role="alert" aria-live="polite"></div>
+              </div>
+
+              <!-- Unit Selectors Row -->
+              <div class="units-row">
+                <!-- From Unit -->
+                <div class="form-group unit-group">
+                  <label for="from-unit" class="form-label">From Unit</label>
+                  <div class="select-wrapper">
+                    <select id="from-unit" class="form-select" aria-label="From temperature unit">
+                      <option value="celsius" selected>Celsius (°C)</option>
+                      <option value="fahrenheit">Fahrenheit (°F)</option>
+                      <option value="kelvin">Kelvin (K)</option>
+                    </select>
+                    <span class="select-arrow" aria-hidden="true">▼</span>
+                  </div>
+                </div>
+
+                <!-- Swap Units Button -->
+                <div class="swap-action-wrapper">
+                  <button
+                    type="button"
+                    id="swap-btn"
+                    class="btn-swap"
+                    title="Swap from and to units"
+                    aria-label="Swap temperature scales"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- To Unit -->
+                <div class="form-group unit-group">
+                  <label for="to-unit" class="form-label">To Unit</label>
+                  <div class="select-wrapper">
+                    <select id="to-unit" class="form-select" aria-label="To temperature unit">
+                      <option value="celsius">Celsius (°C)</option>
+                      <option value="fahrenheit" selected>Fahrenheit (°F)</option>
+                      <option value="kelvin">Kelvin (K)</option>
+                    </select>
+                    <span class="select-arrow" aria-hidden="true">▼</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button Controls -->
+              <div class="actions-row">
+                <button type="button" id="convert-btn" class="btn btn-primary btn-convert">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 12h16M13 5l7 7-7 7"/>
+                  </svg>
+                  <span>Convert Temperature</span>
+                </button>
+                <button type="button" id="clear-btn" class="btn btn-secondary btn-clear">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                  <span>Clear</span>
+                </button>
+              </div>
+
+            </form>
+
+            <!-- Result Display Area -->
+            <div id="result-card" class="result-card" aria-live="polite">
+              <div class="result-placeholder" id="result-placeholder">
+                <div class="placeholder-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                  </svg>
+                </div>
+                <p>Your converted temperature result will appear here.</p>
+              </div>
+
+              <div class="result-content" id="result-content" style="display: none;">
+                <div class="result-header">
+                  <span class="result-badge">CONVERTED RESULT</span>
+                  <button type="button" id="copy-result-btn" class="copy-btn" title="Copy result to clipboard" aria-label="Copy result">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="copy-icon">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span id="copy-text">Copy</span>
+                  </button>
+                </div>
+
+                <div class="result-primary-display">
+                  <span id="result-number" class="result-number">--</span>
+                  <span id="result-symbol" class="result-symbol">--</span>
+                </div>
+
+                <div class="result-full-name" id="result-full-name">--</div>
+
+                <div class="result-equation-box">
+                  <span class="equation-label">Summary:</span>
+                  <span id="result-equation" class="result-equation">--</span>
+                </div>
+
+                <!-- Formula breakdown -->
+                <div class="result-formula-box" id="result-formula-box">
+                  <span class="formula-icon">ℹ</span>
+                  <span id="result-formula-text" class="result-formula-text">--</span>
+                </div>
+
+                <!-- Temperature Visual Spectrum Indicator -->
+                <div class="temp-indicator-container">
+                  <div class="temp-indicator-labels">
+                    <span>Absolute Zero</span>
+                    <span>Freezing</span>
+                    <span>Room</span>
+                    <span>Body</span>
+                    <span>Boiling</span>
+                  </div>
+                  <div class="temp-indicator-track">
+                    <div id="temp-indicator-thumb" class="temp-indicator-thumb" style="left: 50%;"></div>
+                  </div>
+                  <div class="temp-indicator-status" id="temp-indicator-status">
+                    Thermal state: <strong id="temp-state-text">Normal Range</strong>
+                  </div>
+                </div>
+
+                <!-- What This Result Means / Real-World Context -->
+                <div class="result-meaning-box" id="result-meaning-box">
+                  <div class="meaning-header">
+                    <div class="meaning-title-wrap">
+                      <span class="meaning-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="12" y1="16" x2="12" y2="12" />
+                          <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                      </span>
+                      <span class="meaning-title">What This Result Means</span>
+                    </div>
+                    <span class="meaning-category-badge" id="meaning-category-badge">Room Comfort</span>
+                  </div>
+
+                  <p class="meaning-description" id="meaning-description">
+                    Loading context...
+                  </p>
+
+                  <div class="meaning-pills-grid">
+                    <div class="meaning-pill">
+                      <span class="meaning-pill-label">Experience</span>
+                      <span class="meaning-pill-val" id="meaning-feel">--</span>
+                    </div>
+                    <div class="meaning-pill">
+                      <span class="meaning-pill-label">Water State</span>
+                      <span class="meaning-pill-val" id="meaning-water">--</span>
+                    </div>
+                    <div class="meaning-pill">
+                      <span class="meaning-pill-label">Nearest Reference</span>
+                      <span class="meaning-pill-val" id="meaning-reference">--</span>
+                    </div>
+                  </div>
+
+                  <div class="meaning-note" id="meaning-note">
+                    <span class="note-bullet">✦</span>
+                    <span id="meaning-note-text">--</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Quick Conversion Examples -->
+    <section class="section examples-section" id="examples">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">QUICK BENCHMARKS</span>
+          <h2 class="section-title">Reference Conversions</h2>
+          <p class="section-subtitle">Common standard physical temperature landmarks across Celsius, Fahrenheit, and Kelvin.</p>
+        </div>
+
+        <div class="examples-grid">
+          <!-- Card 1 -->
+          <div class="example-card" data-val="0" data-from="celsius" data-to="fahrenheit">
+            <div class="example-badge">WATER FREEZING POINT</div>
+            <div class="example-main">0 °C = 32 °F</div>
+            <div class="example-sub">273.15 K • Ice melting standard</div>
+            <button type="button" class="btn-use-example" aria-label="Load 0 Celsius into converter">
+              <span>Try in Converter</span>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="example-card" data-val="100" data-from="celsius" data-to="fahrenheit">
+            <div class="example-badge">WATER BOILING POINT</div>
+            <div class="example-main">100 °C = 212 °F</div>
+            <div class="example-sub">373.15 K • Sea level vaporization</div>
+            <button type="button" class="btn-use-example" aria-label="Load 100 Celsius into converter">
+              <span>Try in Converter</span>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="example-card" data-val="273.15" data-from="kelvin" data-to="celsius">
+            <div class="example-badge">KELVIN ICE POINT</div>
+            <div class="example-main">273.15 K = 0 °C</div>
+            <div class="example-sub">32 °F • Exact thermodynamic reference</div>
+            <button type="button" class="btn-use-example" aria-label="Load 273.15 Kelvin into converter">
+              <span>Try in Converter</span>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: How It Works -->
+    <section class="section how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">THREE EASY STEPS</span>
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">Effortless and accurate conversions in three intuitive steps.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M7 15h0M2 9.5h20" />
+              </svg>
+            </div>
+            <h3 class="step-title">Enter a Temperature</h3>
+            <p class="step-desc">
+              Type any positive, negative, or decimal value. Tempora automatically validates that the input stays above absolute zero.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" />
+              </svg>
+            </div>
+            <h3 class="step-title">Choose Scales</h3>
+            <p class="step-desc">
+              Select your source and target units from Celsius (°C), Fahrenheit (°F), or Kelvin (K). Use the swap button to instantly reverse them.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h3 class="step-title">Convert Instantly</h3>
+            <p class="step-desc">
+              Click Convert Temperature or press Enter. The result displays with full unit name, equation summary, and exact scientific formula.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: About Tempora -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="about-card">
+          <div class="about-header">
+            <span class="section-tag">ABOUT THE TOOL</span>
+            <h2 class="about-title">A Simple Tool for Everyday Conversions</h2>
+          </div>
+          
+          <div class="about-body">
+            <p class="about-paragraph">
+              Tempora is a lightweight temperature conversion tool designed for students, learners, and everyday use. It converts values between Celsius, Fahrenheit, and Kelvin using standard mathematical formulas directly in your browser.
+            </p>
+            
+            <div class="privacy-note">
+              <div class="note-icon" aria-hidden="true">⚡</div>
+              <p>Results are calculated locally. No external API or account is required.</p>
+            </div>
+
+            <!-- Mathematical Reference Grid -->
+            <div class="formulas-wrapper">
+              <h3 class="formulas-title">Standard Conversion Formulas</h3>
+              <div class="formulas-grid">
+                
+                <div class="formula-item">
+                  <div class="formula-heading">Fahrenheit to Celsius</div>
+                  <code>°C = (°F - 32) × 5/9</code>
+                </div>
+
+                <div class="formula-item">
+                  <div class="formula-heading">Celsius to Fahrenheit</div>
+                  <code>°F = (°C × 9/5) + 32</code>
+                </div>
+
+                <div class="formula-item">
+                  <div class="formula-heading">Kelvin to Celsius</div>
+                  <code>°C = K - 273.15</code>
+                </div>
+
+                <div class="formula-item">
+                  <div class="formula-heading">Celsius to Kelvin</div>
+                  <code>K = °C + 273.15</code>
+                </div>
+
+                <div class="formula-item">
+                  <div class="formula-heading">Fahrenheit to Kelvin</div>
+                  <code>K = (°F - 32) × 5/9 + 273.15</code>
+                </div>
+
+                <div class="formula-item">
+                  <div class="formula-heading">Kelvin to Fahrenheit</div>
+                  <code>°F = (K - 273.15) × 9/5 + 32</code>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Absolute Zero Boundaries -->
+            <div class="limits-card">
+              <h4 class="limits-title">Theoretical Minimum Limits (Absolute Zero)</h4>
+              <div class="limits-list">
+                <div class="limit-badge">Kelvin: <strong>0 K</strong></div>
+                <div class="limit-badge">Celsius: <strong>-273.15 °C</strong></div>
+                <div class="limit-badge">Fahrenheit: <strong>-459.67 °F</strong></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Section 7: Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <!-- Column 1: Brand & Overview -->
+      <div class="footer-brand-col">
+        <div class="brand">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
+              <circle cx="11.5" cy="17.5" r="1.5" fill="currentColor" />
+            </svg>
+          </div>
+          <span class="brand-name">Tempora</span>
+        </div>
+        <p class="footer-tagline">Every Degree, Made Simple.</p>
+        <p class="footer-desc">
+          A modern temperature conversion utility providing instant, scientifically accurate conversions across Celsius, Fahrenheit, and Kelvin scales.
+        </p>
+        <div class="footer-badges">
+          <span class="footer-pill">⚡ Client-Side</span>
+          <span class="footer-pill">🎯 High Precision</span>
+          <span class="footer-pill">🔒 100% Private</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Navigation Links -->
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#converter">Converter</a></li>
+          <li><a href="#examples">Benchmarks</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#about">Formulas</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Supported Scales -->
+      <div class="footer-scales-col">
+        <h4 class="footer-col-title">Supported Scales</h4>
+        <ul class="footer-scale-list">
+          <li>
+            <span class="scale-symbol">°C</span>
+            <div>
+              <span class="scale-name">Celsius</span>
+              <span class="scale-desc">Metric & everyday standard</span>
+            </div>
+          </li>
+          <li>
+            <span class="scale-symbol">°F</span>
+            <div>
+              <span class="scale-name">Fahrenheit</span>
+              <span class="scale-desc">US customary scale</span>
+            </div>
+          </li>
+          <li>
+            <span class="scale-symbol">K</span>
+            <div>
+              <span class="scale-name">Kelvin</span>
+              <span class="scale-desc">SI thermodynamic baseline</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Thermal Benchmarks -->
+      <div class="footer-benchmarks-col">
+        <h4 class="footer-col-title">Key Benchmarks</h4>
+        <ul class="footer-ref-list">
+          <li>
+            <span class="ref-label">Absolute Zero</span>
+            <span class="ref-val">0 K / -273.15 °C</span>
+          </li>
+          <li>
+            <span class="ref-label">Water Freezes</span>
+            <span class="ref-val">0 °C / 32 °F</span>
+          </li>
+          <li>
+            <span class="ref-label">Room Temp</span>
+            <span class="ref-val">20 °C / 68 °F</span>
+          </li>
+          <li>
+            <span class="ref-label">Body Temp</span>
+            <span class="ref-val">37 °C / 98.6 °F</span>
+          </li>
+          <li>
+            <span class="ref-label">Water Boils</span>
+            <span class="ref-val">100 °C / 212 °F</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom container">
+      <p class="copyright">© 2026 Tempora. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js?v=meaning-v3"></script>
+</body>
+</html>

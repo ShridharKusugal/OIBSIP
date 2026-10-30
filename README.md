@@ -21,7 +21,7 @@ Welcome to the **Oasis Infobyte (OIBSIP) Web Development and Designing Internshi
 | :---: | :--- | :--- | :---: | :--- |
 | **01** | **Landing Page: Hidden Karnataka (Hampi)** | HTML5, Pure CSS3 | ✅ Completed | [Explore Task 1](./WebDev-L1-LandingPage-HiddenKarnataka/) |
 | **02** | **Personal Portfolio Website** | HTML5, CSS3, JavaScript | ✅ Completed | [Explore Task 2](./WebDev-L1-PersonalPortfolio/) |
-| **03** | **Temperature Converter Website** | HTML5, CSS3, JavaScript | 🚀 In Progress | `WebDev-L1-TemperatureConverter/` |
+| **03** | **Tempora: Temperature Converter Website** | HTML5, CSS3, Vanilla JavaScript | ✅ Completed | [Explore Task 3](./WebDev-L1-TemperatureConverter/) |
 
 ### Level 2 Tasks
 
@@ -124,6 +124,31 @@ For detailed documentation, design decisions, and setup instructions, see the [L
 
 ---
 
+## 🌡️ Level 1 • Task 3: Tempora — Temperature Converter Website
+
+> **"Every Degree, Made Simple."**  
+> A modern, responsive, and scientifically accurate temperature conversion utility supporting Celsius, Fahrenheit, and Kelvin with real-time conversion, an interactive thermal spectrum gauge, and an intelligent real-world meaning analyzer.
+
+### 🌟 Highlights & Features
+- **Three Supported Scales:** Celsius (°C), Fahrenheit (°F), and Kelvin (K) with instant bidirectional conversion and one-click unit swap.
+- **Accurate Mathematical Pipeline:** Two-step conversion via Celsius eliminating floating-point precision quirks.
+- **Live Real-Time Conversion:** Computes and updates results immediately as numbers are typed or scales are changed.
+- **"What This Result Means" Context Section:** Intelligent real-world context analyzer adapting across 19 thermal zones (Absolute Zero, cryogenic temperatures, freezing point, room comfort, body temperature, boiling point, oven baking, industrial melting, and stellar heat).
+- **Physical Boundary Validation:** Validates theoretical physical minimums (prevents temperatures below Absolute Zero per scale).
+- **Interactive Thermal Spectrum:** Dynamic gradient gauge visually tracking qualitative temperature ranges.
+- **Quick Reference Benchmarks:** Pre-configured scientific reference landmarks with one-click *"Try in Converter"* action.
+- **One-Click Clipboard Copy:** Instant formatted equation copy with visual confirmation.
+- **Zero External Dependencies:** Built strictly with semantic HTML5, modern CSS3, and vanilla JavaScript.
+
+### 📸 Preview
+| Desktop Viewport | Mobile Viewport |
+| :---: | :---: |
+| <img src="./WebDev-L1-TemperatureConverter/screenshots/converter-desktop.png" alt="Desktop Viewport" width="450"/> | <img src="./WebDev-L1-TemperatureConverter/screenshots/converter-mobile.png" alt="Mobile Viewport" width="220"/> |
+
+For detailed documentation, test cases, and setup instructions, see the [Level 1 Task 3 README](./WebDev-L1-TemperatureConverter/README.md).
+
+---
+
 ## 💻 How to Run the Projects Locally
 
 1. **Clone the repository:**
@@ -170,6 +195,16 @@ For detailed documentation, design decisions, and setup instructions, see the [L
      python -m http.server 8080
      ```
      Then open `http://localhost:8080` in your browser.
+   - Using VS Code: Right-click `index.html` and select **"Open with Live Server"**.
+
+6. **Run Level 1 Task 3 (Temperature Converter — Tempora):**
+   - Direct Open: Navigate to `WebDev-L1-TemperatureConverter/` and double-click `index.html`.
+   - Using Python HTTP Server:
+     ```bash
+     cd WebDev-L1-TemperatureConverter
+     python -m http.server 8000
+     ```
+     Then open `http://localhost:8000` in your browser.
    - Using VS Code: Right-click `index.html` and select **"Open with Live Server"**.
 
 ---
