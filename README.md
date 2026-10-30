@@ -18,7 +18,7 @@ Welcome to the **Oasis Infobyte (OIBSIP) Web Development and Designing Internshi
 | Task # | Task Name | Technologies | Status | Project Directory |
 | :---: | :--- | :--- | :---: | :--- |
 | **01** | **Landing Page: Hidden Karnataka (Hampi)** | HTML5, Pure CSS3 | ✅ Completed | [Explore Task 1](./WebDev-L1-LandingPage-HiddenKarnataka/) |
-| **02** | **Personal Portfolio Website** | HTML5, CSS3, JavaScript | 🚀 In Progress | `WebDev-L1-PersonalPortfolio/` |
+| **02** | **Personal Portfolio Website** | HTML5, CSS3, JavaScript | ✅ Completed | [Explore Task 2](./WebDev-L1-PersonalPortfolio/) |
 | **03** | **Temperature Converter Website** | HTML5, CSS3, JavaScript | 🚀 In Progress | `WebDev-L1-TemperatureConverter/` |
 
 ---
@@ -47,6 +47,25 @@ For detailed documentation, design decisions, and setup instructions, see the [T
 
 ---
 
+## 💼 Task 2: Personal Portfolio Website
+
+> **"Building Ideas Into Digital Experiences."**  
+> A modern, accessible personal developer portfolio showcasing projects, technical competencies, and academic background in software engineering.
+
+### 🌟 Highlights & Features
+- **Dual Theme Engine (Dark & Light Mode):** Dynamic theme switcher with `localStorage` persistence and custom SVGs.
+- **Glassmorphic Surface Design:** Translucent navigation and cards with backdrop blur and neon gradient highlights.
+- **Hero Showcase with 3D Perspective Tilt:** Interactive full profile portrait card with a smooth 3D tilt responding to cursor movement.
+- **Comprehensive Skills Breakdown:** Modular skill category cards spanning Python, MySQL, Web Development, and Git.
+- **Interactive Navigation:** Sticky elevated header, mobile menu drawer, and real-time scrollspy tracking active sections.
+- **Curated Projects Showcase:** Highlights personal and academic applications with tech tags and repository links.
+- **Educational Journey:** Chronological timeline detailing MCA coursework at Chetan Business School, Hubballi.
+- **Accessible & Responsive:** Fluid layouts designed for mobile, tablet, and desktop viewports.
+
+For detailed documentation, design decisions, and setup instructions, see the [Task 2 README](./WebDev-L1-PersonalPortfolio/README.md).
+
+---
+
 ## 🏃 How to Run the Projects Locally
 
 1. **Clone the repository:**
@@ -60,6 +79,16 @@ For detailed documentation, design decisions, and setup instructions, see the [T
    - Using Python HTTP Server:
      ```bash
      cd WebDev-L1-LandingPage-HiddenKarnataka
+     python -m http.server 8000
+     ```
+     Then open `http://localhost:8000` in your browser.
+   - Using VS Code: Right-click `index.html` and select **"Open with Live Server"**.
+
+3. **Run Task 2 (Personal Portfolio):**
+   - Direct Open: Navigate to `WebDev-L1-PersonalPortfolio/` and double-click `index.html`.
+   - Using Python HTTP Server:
+     ```bash
+     cd WebDev-L1-PersonalPortfolio
      python -m http.server 8000
      ```
      Then open `http://localhost:8000` in your browser.

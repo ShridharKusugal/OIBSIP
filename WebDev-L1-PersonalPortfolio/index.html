@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Personal Portfolio of Shridhar Kusugal - Aspiring Software Developer and MCA Student passionate about Python, MySQL, and Web Development.">
+  <meta name="author" content="Shridhar Kusugal">
+  <title>Shridhar Kusugal | Aspiring Software Developer Portfolio</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=5">
+
+  <!-- Theme Script (Prevents FOUC) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- Fixed Full-Screen Background Layer (100% visible on all Windows browsers) -->
+  <div class="site-bg-overlay" aria-hidden="true"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-logo" aria-label="Shridhar Kusugal Home">
+        <span class="logo-bracket">&lt;</span><span class="logo-text">SHRIDHAR</span><span
+          class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#research" class="nav-link">Interests</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-cta-wrapper">
+          <a href="#contact" class="btn btn-sm btn-accent nav-cta">Let's Connect</a>
+        </div>
+      </nav>
+
+      <!-- Right Header Controls: Theme Toggle & Mobile Menu -->
+      <div class="nav-controls">
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme mode"
+          title="Switch light/dark mode">
+          <!-- Sun Icon (visible in dark mode) -->
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (visible in light mode) -->
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"
+          aria-controls="navMenu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Section 2: Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        <!-- Hero Left Column -->
+        <div class="hero-content">
+          <div class="hero-header-profile">
+            <div class="hero-avatar-wrapper">
+              <img src="profile.jpg" alt="Shridhar Kusugal" class="hero-avatar-img">
+              <span class="hero-avatar-status" title="Active & Open to Work"></span>
+            </div>
+            <div class="badge hero-badge">
+              <span class="badge-dot"></span>
+              <span>MCA STUDENT · ASPIRING SOFTWARE DEVELOPER</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            Building Ideas Into <span class="gradient-text">Digital Experiences.</span>
+          </h1>
+
+          <p class="hero-paragraph">
+            I'm Shridhar Kusugal, an MCA student passionate about Python programming, database systems, web development,
+            and practical software projects. I enjoy learning new technologies and turning ideas into useful digital
+            solutions.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore My Projects</span>
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <div class="hero-skills">
+            <span class="skills-label">Core Tech Stack:</span>
+            <div class="skills-inline">
+              <span class="skill-tag">Python</span>
+              <span class="skill-separator">·</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-separator">·</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-separator">·</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-separator">·</span>
+              <span class="skill-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Full Profile Image Showcase -->
+        <div class="hero-visual" id="heroPhotoVisual">
+          <div class="hero-portrait-frame">
+            <div class="hero-portrait-card" id="heroPortraitCard">
+              <img src="profile.jpg" alt="Shridhar Kusugal - Full Profile Portrait" class="hero-portrait-img">
+              <div class="hero-portrait-overlay"></div>
+              <div class="hero-portrait-status">
+                <span class="status-pulse-dot"></span>
+                <span>Active &amp; Ready to Collaborate</span>
+              </div>
+            </div>
+            <!-- Decorative Glow Backdrop -->
+            <div class="glow-orb orb-primary"></div>
+            <div class="glow-orb orb-secondary"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: About Me -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Get To Know Me</span>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-content">
+          <div class="about-main-grid">
+            <!-- Left: Professional Portrait Showcase Card -->
+            <div class="about-photo-card">
+              <div class="about-photo-frame">
+                <img src="profile.jpg" alt="Shridhar Kusugal - Aspiring Software Developer" class="about-photo-img">
+                <div class="about-photo-status">
+                  <span class="status-pulse-dot"></span>
+                  <span>Available for Internships & Roles</span>
+                </div>
+              </div>
+              <div class="about-photo-info">
+                <h3 class="about-photo-name">Shridhar Kusugal</h3>
+                <p class="about-photo-role">MCA Candidate · Chetan Business School</p>
+                <div class="about-photo-tags">
+                  <span class="photo-tag">Python</span>
+                  <span class="photo-tag">MySQL</span>
+                  <span class="photo-tag">Web Dev</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Bio & Career Objective -->
+            <div class="about-text-card">
+              <p class="about-lead">
+                I'm pursuing my MCA and developing my skills in programming, databases, and software development.
+                Through
+                academic projects and independent learning, I explore practical ways to solve problems using technology.
+                My goal is to grow into a capable software developer and contribute to meaningful software projects.
+              </p>
+
+              <div class="career-objective-box">
+                <div class="objective-header">
+                  <svg class="objective-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                  </svg>
+                  <h3 class="objective-title">Career Objective</h3>
+                </div>
+                <p class="objective-quote">
+                  "To build reliable, useful, and user-friendly software solutions while continuously improving my
+                  programming, problem-solving, and software development skills."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-highlights-grid">
+            <div class="highlight-card">
+              <div class="card-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-svg">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <div class="card-info">
+                <span class="highlight-label">Current Focus</span>
+                <h4 class="highlight-value">Software Development</h4>
+                <p class="highlight-desc">Building academic projects, sharpening algorithmic thinking, and modern web
+                  application logic.</p>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="card-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-svg">
+                  <path d="M16 18l6-6-6-6"></path>
+                  <path d="M8 6l-6 6 6 6"></path>
+                </svg>
+              </div>
+              <div class="card-info">
+                <span class="highlight-label">Core Language</span>
+                <h4 class="highlight-value">Python</h4>
+                <p class="highlight-desc">Writing clean scripts, processing data, image-handling experiments, and
+                  backend application foundations.</p>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="card-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-svg">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <div class="card-info">
+                <span class="highlight-label">Database Skills</span>
+                <h4 class="highlight-value">MySQL</h4>
+                <p class="highlight-desc">Relational schema design, structured queries, data consistency, and reliable
+                  CRUD operations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Technical Skills -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Proficiencies & Tools</span>
+          <h2 class="section-title">My Technical Toolkit</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Organized around practical development competencies acquired through MCA coursework, independent learning,
+            and hands-on projects.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1: Programming -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="category-title">Programming</h3>
+                <span class="category-count">Core Languages</span>
+              </div>
+            </div>
+            <div class="skill-chips-container">
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">Python</span>
+                <span class="chip-tag">Primary</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">JavaScript</span>
+                <span class="chip-tag">Frontend Logic</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">Java</span>
+                <span class="chip-tag">OOP & Academic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Web Development -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="category-title">Web Development</h3>
+                <span class="category-count">Frontend & Layouts</span>
+              </div>
+            </div>
+            <div class="skill-chips-container">
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">HTML5</span>
+                <span class="chip-tag">Semantic Structure</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">CSS3</span>
+                <span class="chip-tag">Modern Styling</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">Responsive Web Design</span>
+                <span class="chip-tag">Flexbox & Grid</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Database -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 7c0-1.66 3.58-3 8-3s8 1.34 8 3-3.58 3-8 3-8-1.34-8-3z"></path>
+                  <path d="M4 7v10c0 1.66 3.58 3 8 3s8-1.34 8-3V7"></path>
+                  <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="category-title">Database</h3>
+                <span class="category-count">Storage & Queries</span>
+              </div>
+            </div>
+            <div class="skill-chips-container">
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">MySQL</span>
+                <span class="chip-tag">RDBMS</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">SQL Queries</span>
+                <span class="chip-tag">Data Retrieval</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">CRUD Operations</span>
+                <span class="chip-tag">Data Management</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Additional Interests -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+              </div>
+              <div>
+                <h3 class="category-title">Additional Interests</h3>
+                <span class="category-count">AI, Vision & Tools</span>
+              </div>
+            </div>
+            <div class="skill-chips-container">
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">Machine Learning</span>
+                <span class="chip-tag">Foundations</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">Computer Vision</span>
+                <span class="chip-tag">Research Interest</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">Digital Image Processing</span>
+                <span class="chip-tag">Segmentation</span>
+              </div>
+              <div class="skill-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-name">Git & GitHub</span>
+                <span class="chip-tag">Version Control</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Featured Projects -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Portfolio Showcase</span>
+          <h2 class="section-title">Projects That Reflect My Learning</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Academic projects, research experiments, and software concepts developed to tackle practical computational
+            problems.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge status-concept">Platform Concept</div>
+              <div class="project-icon-top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Career Forge — AI-Powered Career Preparation Platform</h3>
+              <p class="project-description">
+                A career preparation platform concept designed to help students explore IT job opportunities, learning
+                resources, technical assessments, and career preparation workflows.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Web Technologies</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/ShridharKusugal/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-sm btn-card">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon-sm">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>GitHub Profile</span>
+              </a>
+              <span class="project-status-label">In Development</span>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge status-security">Cybersecurity Project</div>
+              <div class="project-icon-top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Shadow AI Detector</h3>
+              <p class="project-description">
+                A cybersecurity project developed to help analyze supplied or simulated AI-service traffic and identify
+                potentially unapproved AI usage through a dashboard.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Dashboard Interface</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/ShridharKusugal/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-sm btn-card">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon-sm">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>GitHub Profile</span>
+              </a>
+              <span class="project-status-label">Academic Project</span>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge status-research">CV Research</div>
+              <div class="project-icon-top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Skin Lesion Segmentation Research</h3>
+              <p class="project-description">
+                A computer vision research project investigating skin-lesion segmentation using image-processing
+                techniques and segmentation models, with evaluation using reference masks and segmentation metrics.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">ML Frameworks</span>
+                <span class="tech-tag">Image Processing</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/ShridharKusugal/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-sm btn-card">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon-sm">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>GitHub Profile</span>
+              </a>
+              <span class="project-status-label">Research Study</span>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge status-system">Database Application</div>
+              <div class="project-icon-top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                  <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                  <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">N-K Automobiles Management System</h3>
+              <p class="project-description">
+                A database-driven application concept for managing vehicle inventory, customer records, sales, and
+                service information.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/ShridharKusugal/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-sm btn-card">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon-sm">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>GitHub Profile</span>
+              </a>
+              <span class="project-status-label">System Concept</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Education -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Academic Background</span>
+          <h2 class="section-title">Education</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Strong foundational studies in computer applications, programming paradigms, and software systems
+            engineering.
+          </p>
+        </div>
+
+        <div class="education-timeline">
+          <!-- Item 1: MCA -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-badge">Currently Pursuing</span>
+                  <h3 class="timeline-degree">Master of Computer Applications (MCA)</h3>
+                  <h4 class="timeline-institution">Chetan Business School, Hubballi, Karnataka</h4>
+                </div>
+                <div class="timeline-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-desc">
+                  <strong>Academic Focus:</strong> Computer Science and software development, algorithmic problem
+                  solving, modern database architectures, and full-stack software implementation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: BCA -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-badge badge-completed">Graduated · CGPA 8.6 / 10</span>
+                  <h3 class="timeline-degree">Bachelor of Computer Applications (BCA)</h3>
+                  <h4 class="timeline-institution">HCES BCA College, Gadag, Karnataka</h4>
+                </div>
+                <div class="timeline-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-desc">
+                  Completed undergraduate degree with strong academic merit (CGPA: 8.6/10), building core proficiencies
+                  in object-oriented programming, data structures, relational database management, and web programming
+                  fundamentals.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Research and Learning Interests -->
+    <section class="section research-section" id="research">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Exploration & Growth</span>
+          <h2 class="section-title">Always Learning, Always Building</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Hands-on learning topics and experimental research interests actively explored through code and study.
+          </p>
+        </div>
+
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-num">01</div>
+            <div class="research-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </div>
+            <h3 class="research-title">Skin-Lesion Segmentation</h3>
+            <p class="research-text">
+              Investigating traditional digital image processing techniques and boundary extraction approaches for
+              skin-lesion segmentation and morphological analysis.
+            </p>
+          </div>
+
+          <div class="research-card">
+            <div class="research-num">02</div>
+            <div class="research-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </div>
+            <h3 class="research-title">Low-Light Traffic Image Enhancement</h3>
+            <p class="research-text">
+              Exploring classical image-processing methods, contrast adjustments, and filter pipelines to enhance
+              visibility in low-light traffic scenes.
+            </p>
+          </div>
+
+          <div class="research-card">
+            <div class="research-num">03</div>
+            <div class="research-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="research-title">Full-Stack Web Application Development</h3>
+            <p class="research-text">
+              Crafting responsive web architectures, clean user interfaces, modular components, and connecting frontends
+              with robust database services.
+            </p>
+          </div>
+
+          <div class="research-card">
+            <div class="research-num">04</div>
+            <div class="research-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="research-title">Python Programming & Database Design</h3>
+            <p class="research-text">
+              Mastering Pythonic design patterns, structured relational modeling in MySQL, query optimization, and clean
+              data access patterns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Contact Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Get In Touch</span>
+          <h2 class="section-title">Have a Project in Mind?</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            I'm interested in software development opportunities, collaborative projects, and opportunities to learn and
+            grow as a developer.
+          </p>
+        </div>
+
+        <div class="contact-card-wrapper">
+          <div class="contact-main-card">
+            <div class="contact-intro">
+              <div class="contact-profile-header">
+                <div class="contact-avatar-wrapper">
+                  <img src="profile.jpg" alt="Shridhar Kusugal" class="contact-avatar-img">
+                  <span class="contact-avatar-status" title="Available for Roles &amp; Projects"></span>
+                </div>
+                <div class="contact-intro-content">
+                  <h3 class="contact-card-title">Let's Connect &amp; Collaborate</h3>
+                  <p class="contact-card-text">
+                    Whether you have an internship opportunity, a software project idea, or would like to discuss technology
+                    and programming, feel free to reach out via my professional channels.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-links-grid">
+              <!-- LinkedIn Card -->
+              <a href="https://www.linkedin.com/in/shridhar-kusugal-645277330/" target="_blank"
+                rel="noopener noreferrer" class="contact-link-item">
+                <div class="contact-icon linkedin-bg">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </div>
+                <div class="contact-info">
+                  <span class="contact-type">Professional Network</span>
+                  <span class="contact-value">LinkedIn Profile</span>
+                  <span class="contact-action">Connect on LinkedIn &rarr;</span>
+                </div>
+              </a>
+
+              <!-- GitHub Card -->
+              <a href="https://github.com/ShridharKusugal/" target="_blank" rel="noopener noreferrer"
+                class="contact-link-item">
+                <div class="contact-icon github-bg">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </div>
+                <div class="contact-info">
+                  <span class="contact-type">Code Repositories</span>
+                  <span class="contact-value">github.com/ShridharKusugal</span>
+                  <span class="contact-action">View Repositories &rarr;</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Verified Contact Status Note -->
+            <div class="contact-footer-note">
+              <div class="verified-dot"></div>
+              <span>Open for Software Development and Web Internship opportunities. Feel free to connect directly via
+                LinkedIn!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Section 9: Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <span class="logo-bracket">&lt;</span><span class="logo-text">SHRIDHAR</span><span
+              class="logo-bracket">/&gt;</span>
+          </a>
+          <p class="footer-tagline">Aspiring Software Developer & MCA Student</p>
+
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#research">Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Connect</h4>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/shridhar-kusugal-645277330/" target="_blank" rel="noopener noreferrer"
+              class="social-btn" aria-label="LinkedIn Profile">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a href="https://github.com/ShridharKusugal/" target="_blank" rel="noopener noreferrer" class="social-btn"
+              aria-label="GitHub Profile">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Shridhar Kusugal. All rights reserved.</p>
+        <p class="footer-credit">Personal Portfolio | Web Development & Designing</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top of page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <!-- Script for accessible navigation, scrollspy & back-to-top -->
+  <script src="script.js"></script>
+</body>
+
+</html>
