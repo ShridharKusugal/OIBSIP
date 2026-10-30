@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaCalc — Modern Responsive Calculator | Oasis Infobyte Level 2 Task 1</title>
+  <meta name="description" content="NovaCalc is a modern, responsive calculator web application built with HTML5, CSS3, and Vanilla JavaScript. Features precision arithmetic, keyboard controls, history log, and glassmorphism styling.">
+  <meta name="author" content="Shridhar Kusugal">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Inter & JetBrains Mono for pristine calculator digits -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="dark">
+  <!-- Background Glow Orbs for Ambient Glassmorphism -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+
+  <!-- Main Calculator Container -->
+  <main class="calculator-wrapper">
+    <div class="calculator-card" role="region" aria-label="Calculator">
+      <!-- Calculator Top Utility Bar -->
+      <div class="calc-utility-bar">
+        <div class="utility-left">
+          <button id="history-toggle-btn" class="utility-btn" title="Toggle calculation history" aria-label="Toggle history log">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="btn-text">History</span>
+          </button>
+        </div>
+        <div class="calc-brand" title="NovaCalc — Precision Web Calculator">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-name">NovaCalc</span>
+        </div>
+        <div class="utility-right">
+          <button id="sound-toggle-btn" class="utility-btn" title="Toggle key click audio" aria-label="Toggle sound feedback">
+            <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+            <svg class="icon-sound-off hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            </svg>
+          </button>
+          <button id="theme-toggle-btn" class="utility-btn" title="Switch Theme (Dark / Light)" aria-label="Switch Theme">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Calculator Display Screen -->
+      <div class="calculator-display" id="calc-display" tabindex="0" role="textbox" aria-readonly="true" aria-label="Calculator display screen">
+        <div class="display-secondary">
+          <span class="previous-operand" id="previous-operand"></span>
+          <span class="current-operator" id="current-operator"></span>
+        </div>
+        <div class="display-primary">
+          <span class="current-operand" id="current-operand" aria-live="polite">0</span>
+        </div>
+        <button id="copy-btn" class="display-copy-btn" title="Copy current value to clipboard" aria-label="Copy result">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
+        </button>
+      </div>
+
+      <!-- Keypad Grid (20 buttons: 5 rows × 4 columns) -->
+      <div class="calculator-keypad">
+        <!-- Row 1: Actions & Division -->
+        <button type="button" class="btn btn-action btn-clear" data-action="clear" data-key="Escape" title="Clear all (Escape)" aria-label="Clear All">AC</button>
+        <button type="button" class="btn btn-action btn-delete" data-action="delete" data-key="Backspace" title="Delete last character (Backspace)" aria-label="Delete last digit">DEL</button>
+        <button type="button" class="btn btn-action btn-negate" data-action="negate" data-key="F9" title="Toggle negative/positive sign" aria-label="Toggle sign">±</button>
+        <button type="button" class="btn btn-operator" data-operator="÷" data-key="/" title="Divide (/)" aria-label="Divide">÷</button>
+
+        <!-- Row 2: Numbers 7, 8, 9 & Multiply -->
+        <button type="button" class="btn btn-number" data-number="7" data-key="7" aria-label="Seven">7</button>
+        <button type="button" class="btn btn-number" data-number="8" data-key="8" aria-label="Eight">8</button>
+        <button type="button" class="btn btn-number" data-number="9" data-key="9" aria-label="Nine">9</button>
+        <button type="button" class="btn btn-operator" data-operator="×" data-key="*" title="Multiply (*)" aria-label="Multiply">×</button>
+
+        <!-- Row 3: Numbers 4, 5, 6 & Subtract -->
+        <button type="button" class="btn btn-number" data-number="4" data-key="4" aria-label="Four">4</button>
+        <button type="button" class="btn btn-number" data-number="5" data-key="5" aria-label="Five">5</button>
+        <button type="button" class="btn btn-number" data-number="6" data-key="6" aria-label="Six">6</button>
+        <button type="button" class="btn btn-operator" data-operator="-" data-key="-" title="Subtract (-)" aria-label="Subtract">−</button>
+
+        <!-- Row 4: Numbers 1, 2, 3 & Add -->
+        <button type="button" class="btn btn-number" data-number="1" data-key="1" aria-label="One">1</button>
+        <button type="button" class="btn btn-number" data-number="2" data-key="2" aria-label="Two">2</button>
+        <button type="button" class="btn btn-number" data-number="3" data-key="3" aria-label="Three">3</button>
+        <button type="button" class="btn btn-operator" data-operator="+" data-key="+" title="Add (+)" aria-label="Add">+</button>
+
+        <!-- Row 5: Percentage, 0, Decimal, Equals -->
+        <button type="button" class="btn btn-action btn-percent" data-action="percent" data-key="%" title="Percentage (%)" aria-label="Percentage">%</button>
+        <button type="button" class="btn btn-number" data-number="0" data-key="0" aria-label="Zero">0</button>
+        <button type="button" class="btn btn-number btn-decimal" data-number="." data-key="." title="Decimal point (.)" aria-label="Decimal point">.</button>
+        <button type="button" class="btn btn-equals" data-action="calculate" data-key="Enter" title="Calculate equals (Enter or =)" aria-label="Equals">=</button>
+      </div>
+
+      <!-- Slide-Over History Panel -->
+      <aside class="history-panel" id="history-panel" aria-label="Calculation History" aria-hidden="true">
+        <div class="history-header">
+          <div class="history-title-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <h3 class="history-title">Calculation History</h3>
+          </div>
+          <div class="history-controls">
+            <button id="clear-history-btn" class="history-action-btn" title="Clear all history">Clear</button>
+            <button id="close-history-btn" class="history-action-btn close-btn" title="Close history panel">&times;</button>
+          </div>
+        </div>
+        <ul class="history-list" id="history-list">
+          <li class="history-empty">No calculations recorded yet</li>
+        </ul>
+      </aside>
+    </div>
+
+
+  </main>
+
+  <!-- High-Visibility Footer with Internship Credits -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p class="footer-title">
+        <span class="footer-badge">OIBSIP</span>
+        <span><strong>Oasis Infobyte</strong> Web Development &amp; Designing Internship</span>
+      </p>
+      <p class="footer-details">
+        <span class="footer-task">Level 2 • Task 1</span>
+        <span class="footer-divider" aria-hidden="true">•</span>
+        <span class="footer-project">Project: <strong>NovaCalc</strong></span>
+        <span class="footer-divider" aria-hidden="true">•</span>
+        <span class="footer-author">Developed by <strong>Shridhar Kusugal</strong></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript Execution -->
+  <script src="script.js"></script>
+</body>
+</html>
+
